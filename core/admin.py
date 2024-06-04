@@ -10,7 +10,7 @@ from .models import User, Observation, Request
 class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'location')}),
+        ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'location', 'role')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
@@ -20,7 +20,7 @@ class UserAdmin(BaseUserAdmin):
             'fields': ('username', 'password1', 'password2'),
         }),
     )
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'location')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'location', 'role')
     search_fields = ('username', 'first_name', 'last_name', 'email')
     ordering = ('username',)
 
